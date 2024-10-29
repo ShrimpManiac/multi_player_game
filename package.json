@@ -1,0 +1,21 @@
+{
+  "name": "multi_player_game",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "type": "module",
+  "repository": "github.com/ShrimpManiac/multi_player_game",
+  "author": "ShrimpManiac <73187151+ShrimpManiac@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "lodash": "^4.17.21",
+    "mysql2": "^3.11.3",
+    "protobufjs": "^7.4.0",
+    "uuid": "^11.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
+  }
+}
