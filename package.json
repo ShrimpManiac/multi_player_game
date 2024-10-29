@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "repository": "github.com/ShrimpManiac/multi_player_game",
   "author": "ShrimpManiac <73187151+ShrimpManiac@users.noreply.github.com>",
   "license": "MIT",
