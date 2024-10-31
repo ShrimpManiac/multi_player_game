@@ -19,6 +19,6 @@ export const joinGame = (userId) => {
 
   const userExists = gameSession.getUser(userId);
   if (!userExists) {
-    gameSession.addUser(user);
+    gameSession.addPlayer(user);
   }
 };
