@@ -1,6 +1,7 @@
 import { GAME_STATE, MAX_PLAYERS } from '../../constants/game.js';
 import CustomError from '../../utils/error/customError.js';
 import { ErrorCodes } from '../../utils/error/errorCodes.js';
+import { createLocationPacket } from '../../utils/notification/game.notification.js';
 
 class Game {
   constructor() {
@@ -49,6 +50,14 @@ class Game {
 
   startGame() {
     this.state = GAME_STATE.IN_PROGRESS;
+  }
+
+  getAllLocations() {
+    const locationData = this.players.map((player) => {
+      const { x, y } = player;
+      return { id: player.id, x, y };
+    });
+    return createLocationPacket(locationData);
   }
 }
 
