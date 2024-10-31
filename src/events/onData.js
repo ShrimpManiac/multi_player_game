@@ -44,6 +44,15 @@ export const onData = (socket) => async (data) => {
 
           break;
         }
+        case PACKET_TYPE.LOCATION: {
+          const { handlerId, userId, payload } = packetParser(packet);
+
+          // 핸들러 실행
+          const handler = getHandlerById(handlerId);
+          await handler({ socket, userId, payload });
+
+          break;
+        }
       }
     } catch (error) {
       handleError(socket, error);
