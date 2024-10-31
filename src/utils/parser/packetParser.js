@@ -45,8 +45,8 @@ export const packetParser = (data) => {
     payload = PayloadType.decode(packet.payload);
   } catch (error) {
     throw new CustomError(
-      ErrorCodes.PACKET_DECODE_ERROR,
-      `Payload 디코딩 중 오류가 발생했습니다: ${error.message}`,
+      ErrorCodes.PACKET_STRUCTURE_MISMATCH,
+      `패킷 구조가 일치하지 않습니다: ${error.message}`,
     );
   }
 
