@@ -53,6 +53,9 @@ export const loadProtos = async () => {
       }
     }
 
+    // protoMessages가 변하지 않도록 고정
+    Object.freeze(protoMessages);
+
     console.log('Protobuf 파일이 로드되었습니다.');
   } catch (error) {
     console.error('Protobuf 파일 로드 중 오류가 발생했습니다:', error);
