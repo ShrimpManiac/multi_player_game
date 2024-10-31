@@ -7,4 +7,5 @@ export const ErrorCodes = Object.freeze({
   MISSING_FIELDS: 10005,
   USER_NOT_FOUND: 10006,
   INVALID_PACKET: 10007,
+  GAME_FULL: 10008,
 });
