@@ -61,3 +61,11 @@ export const loadProtos = async () => {
     console.error('Protobuf 파일 로드 중 오류가 발생했습니다:', error);
   }
 };
+
+/**
+ * 로드한 프로토타입을 조회하는 함수
+ * @returns 로드한 프로토타입
+ */
+export const getProtoMessages = () => {
+  return { ...protoMessages };
+};
