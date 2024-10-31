@@ -40,9 +40,6 @@ export const onData = (socket) => async (data) => {
         const handler = getHandlerById(handlerId);
         await handler({ socket, userId, payload });
 
-        console.log(`handlerId: ${handlerId}`);
-        console.log(`userId: ${userId}`);
-        console.log(`payload: ${payload}`);
         break;
       }
     }
