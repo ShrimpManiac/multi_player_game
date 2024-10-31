@@ -1,6 +1,6 @@
 import CustomError from '../utils/error/customError.js';
 import { ErrorCodes } from '../utils/error/errorCodes.js';
-import { gameSession } from './sessions';
+import { gameSession } from './sessions.js';
 import { getUserById, getUserBySocket } from './user.session.js';
 
 export const getGameSession = () => {
