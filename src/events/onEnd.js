@@ -1,4 +1,4 @@
-import { removeUser } from '../sessions/user.session';
+import { removeUser } from '../sessions/user.session.js';
 export const onEnd = (socket) => () => {
   removeUser(socket);
 

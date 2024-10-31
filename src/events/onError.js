@@ -1,5 +1,5 @@
-import { handleError } from '../utils/error/errorHandler';
-import CustomError from '../utils/error/customError';
+import { handleError } from '../utils/error/errorHandler.js';
+import CustomError from '../utils/error/customError.js';
 import { ErrorCodes } from '../utils/error/errorCodes.js';
 import { removeUser } from '../sessions/user.session.js';
 

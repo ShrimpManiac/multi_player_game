@@ -1,8 +1,8 @@
 import { config } from '../config/config.js';
 import { PACKET_TYPE } from '../constants/header.js';
 import { packetParser } from '../utils/parser/packetParser.js';
-import { getHandlerById } from '../handlers';
-import { handleError } from '../utils/error/errorHandler';
+import { getHandlerById } from '../handlers/index.js';
+import { handleError } from '../utils/error/errorHandler.js';
 
 export const onData = (socket) => async (data) => {
   // 기존 버퍼에 새로 수신된 데이터를 추가
