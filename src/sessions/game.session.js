@@ -23,18 +23,17 @@ export const joinGame = (userId) => {
   }
 };
 
-export const leaveGame = (userId) => {
+export const leaveGame = (user) => {
   if (!gameSession) {
     throw new CustomError(ErrorCodes.GAME_NOT_FOUND, '게임 세션을 찾을 수 없습니다.');
   }
 
-  const user = getUserById(userId);
   if (!user) {
     throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
   }
 
-  const userExists = gameSession.getUser(userId);
+  const userExists = gameSession.getUser(user.id);
   if (!userExists) {
-    gameSession.removePlayer(userId);
+    gameSession.removePlayer(user.id);
   }
 };
