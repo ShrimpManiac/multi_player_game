@@ -3,8 +3,7 @@ import CustomError from '../../utils/error/customError.js';
 import { ErrorCodes } from '../../utils/error/errorCodes.js';
 
 class Game {
-  constructor(id) {
-    this.id = id;
+  constructor() {
     this.players = [];
     this.state = GAME_STATE.WAITING;
   }
