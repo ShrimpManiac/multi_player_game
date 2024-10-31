@@ -4,7 +4,7 @@ import { ErrorCodes } from '../utils/error/errorCodes.js';
 import initialHandler from './user/initial.handler.js';
 
 const handlers = {
-  [HANDLER_IDS.INIT]: {
+  [HANDLER_IDS.INITIAL]: {
     handler: initialHandler,
     protoType: 'initial.InitialPacket',
   },
