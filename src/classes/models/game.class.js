@@ -55,7 +55,7 @@ class Game {
   getAllLocations() {
     const locationData = this.players.map((player) => {
       const { x, y } = player;
-      return { id: player.id, x, y };
+      return { id: player.id, playerId: player.playerId, x, y };
     });
     return createLocationPacket(locationData);
   }

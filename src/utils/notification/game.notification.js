@@ -15,11 +15,11 @@ const makeNotification = (message, type) => {
   return Buffer.concat([packetLength, packetType, message]);
 };
 
-export const createLocationPacket = (userLocations) => {
+export const createLocationPacket = (users) => {
   const protoMessages = getProtoMessages();
   const LocationUpdate = protoMessages.gameNotification.LocationUpdate;
 
-  const payload = { userLocations };
+  const payload = { users };
   const message = LocationUpdate.create(payload);
   const locationPacket = LocationUpdate.encode(message).finish();
   return makeNotification(locationPacket, PACKET_TYPE.LOCATION);
