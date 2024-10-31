@@ -16,7 +16,7 @@ export const onData = (socket) => async (data) => {
     // 1. 패킷 길이 정보 수신 (4바이트)
     const length = socket.buffer.readUInt32BE(0);
     // 2. 패킷 타입 정보 수신 (1바이트)
-    const packetType = socket.buffer.readUInt8BE(config.packet.totalLength);
+    const packetType = socket.buffer.readUInt8(config.packet.totalLength);
 
     // 아직 전체 패킷이 도착하지 않았다면 데이터 수신을 보류
     if (socket.buffer.length < length) {
