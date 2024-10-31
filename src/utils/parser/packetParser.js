@@ -19,7 +19,22 @@ export const packetParser = (data) => {
   const handlerId = packet.handlerId;
   const userId = packet.userId;
   const clientVersion = packet.clientVersion;
-  const payload = packet.payload;
+
+  // 핸들러 ID에 따라 적절한 payload 구조를 디코딩
+  const protoTypeName = getProtoTypeNameByHandlerId(handlerId);
+  if (!protoTypeName) {
+    console.error(`알 수 없는 핸들러ID: ${handlerId}`);
+  }
+
+  const [namespace, typeName] = protoTypeName.split('.');
+  const PayloadType = protoMessages[namespace][typeName];
+
+  let payload;
+  try {
+    payload = PayloadType.decode(packet.payload);
+  } catch (error) {
+    console.error('Payload 디코딩 중 오류가 발생했습니다:', error);
+  }
 
   return { handlerId, userId, payload };
 };
