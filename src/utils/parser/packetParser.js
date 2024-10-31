@@ -21,7 +21,7 @@ export const packetParser = (data) => {
 
   const handlerId = packet.handlerId;
   const userId = packet.userId;
-  const clientVersion = packet.clientVersion;
+  const clientVersion = packet.version;
 
   // 검증: 클라이언트 버전 일치
   if (clientVersion !== config.client.version) {
