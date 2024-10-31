@@ -2,7 +2,7 @@ import { config } from '../config/config.js';
 import { PACKET_TYPE } from '../constants/header.js';
 import { packetParser } from '../utils/parser/packetParser.js';
 
-export const onData = (socket) => (data) => {
+export const onData = (socket) => async (data) => {
   // 기존 버퍼에 새로 수신된 데이터를 추가
   socket.buffer = Buffer.concat([socket.buffer, data]);
 
