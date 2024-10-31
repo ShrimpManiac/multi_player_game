@@ -17,7 +17,7 @@ export const joinGame = (userId) => {
     throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
   }
 
-  const userExists = gameSession.getUser(userId);
+  const userExists = gameSession.getPlayer(userId);
   if (!userExists) {
     gameSession.addPlayer(user);
   }
@@ -33,7 +33,7 @@ export const leaveGame = (socket) => {
     throw new CustomError(ErrorCodes.USER_NOT_FOUND, '유저를 찾을 수 없습니다.');
   }
 
-  const userExists = gameSession.getUser(user.id);
+  const userExists = gameSession.getPlayer(user.id);
   if (!userExists) {
     gameSession.removePlayer(user.id);
   }
