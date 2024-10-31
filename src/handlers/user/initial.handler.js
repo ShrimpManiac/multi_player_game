@@ -9,7 +9,14 @@ const initialHandler = async ({ socket, userId, payload }) => {
   try {
     const { deviceId, playerId, latency } = payload;
 
-    addUser(socket, deviceId, playerId, latency);
+    // deviceId가 존재할 경우 deviceId로 유저 등록
+    // 그렇지 않으면 클라이언트에서 자체 생성한 userId로 등록
+    if (deviceId && deviceId.length > 0) {
+      addUser(socket, deviceId, playerId, latency);
+    } else {
+      addUser(socket, userId, playerId, latency);
+    }
+
     joinGame(deviceId);
 
     const initialResponse = createResponse(HANDLER_IDS.INIT, RESPONSE_SUCCESS_CODE, {
