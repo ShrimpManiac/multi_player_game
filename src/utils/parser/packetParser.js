@@ -20,6 +20,11 @@ export const packetParser = (data) => {
   const userId = packet.userId;
   const clientVersion = packet.clientVersion;
 
+  // 검증: 클라이언트 버전 일치
+  if (clientVersion !== config.client.version) {
+    console.error('클라이언트 버전이 일치하지 않습니다.');
+  }
+
   // 핸들러 ID에 따라 적절한 payload 구조를 디코딩
   const protoTypeName = getProtoTypeNameByHandlerId(handlerId);
   if (!protoTypeName) {
