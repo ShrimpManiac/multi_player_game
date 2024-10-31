@@ -1,5 +1,5 @@
-import { RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds';
-import { HANDLER_IDS } from '../../constants/handlerIds';
+import { RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
+import { HANDLER_IDS } from '../../constants/handlerIds.js';
 import { addUser } from '../../session/user.session.js';
 import { handleError } from '../../utils/error/errorHandler.js';
 import { createResponse } from '../../utils/response/createResponse.js';
