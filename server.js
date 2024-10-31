@@ -9,7 +9,7 @@ const server = net.createServer(onConnection);
 
 initServer()
   .then(() => {
-    server.listen(port, () => {
+    server.listen(port, host, () => {
       console.log(`서버가 ${host}:${port}}에서 실행중입니다.`);
       console.log(server.address());
     });
