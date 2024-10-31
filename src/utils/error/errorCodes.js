@@ -1,4 +1,4 @@
-export const ErrorCodes = {
+export const ErrorCodes = Object.freeze({
   SOCKET_ERROR: 10000,
   CLIENT_VERSION_MISMATCH: 10001,
   UNKNOWN_HANDLER_ID: 10002,
@@ -7,4 +7,4 @@ export const ErrorCodes = {
   MISSING_FIELDS: 10005,
   USER_NOT_FOUND: 10006,
   INVALID_PACKET: 10007,
-};
+});
