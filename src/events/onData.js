@@ -2,6 +2,7 @@ import { config } from '../config/config.js';
 import { PACKET_TYPE } from '../constants/header.js';
 import { packetParser } from '../utils/parser/packetParser.js';
 import { getHandlerById } from '../handlers';
+import { handleError } from '../utils/error/errorHandler';
 
 export const onData = (socket) => async (data) => {
   // 기존 버퍼에 새로 수신된 데이터를 추가
@@ -29,19 +30,23 @@ export const onData = (socket) => async (data) => {
     console.log(`length: ${length}, packetType: ${packetType}`); // LOG
     console.log(`packet: ${packet}`); // LOG
 
-    switch (packetType) {
-      case PACKET_TYPE.PING: {
-        break;
-      }
-      case PACKET_TYPE.NORMAL: {
-        const { handlerId, userId, payload } = packetParser(packet);
+    try {
+      switch (packetType) {
+        case PACKET_TYPE.PING: {
+          break;
+        }
+        case PACKET_TYPE.NORMAL: {
+          const { handlerId, userId, payload } = packetParser(packet);
 
-        // 핸들러 실행
-        const handler = getHandlerById(handlerId);
-        await handler({ socket, userId, payload });
+          // 핸들러 실행
+          const handler = getHandlerById(handlerId);
+          await handler({ socket, userId, payload });
 
-        break;
+          break;
+        }
       }
+    } catch (error) {
+      handleError(socket, error);
     }
   }
 };
