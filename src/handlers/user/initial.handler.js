@@ -6,9 +6,9 @@ import { createResponse } from '../../utils/response/createResponse.js';
 
 const initialHandler = async ({ socket, userId, payload }) => {
   try {
-    const { deviceId } = payload;
+    const { deviceId, playerId, latency } = payload;
 
-    addUser(socket, deviceId);
+    addUser(socket, deviceId, playerId, latency);
 
     const initialResponse = createResponse(HANDLER_IDS.INIT, RESPONSE_SUCCESS_CODE, {
       userId: deviceId,
