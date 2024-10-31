@@ -1,10 +1,7 @@
 import net from 'net';
-import dotenv from 'dotenv';
+import { config } from './src/config/config.js';
 
-dotenv.config();
-
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
+const { host, port } = config.server;
 
 const server = net.createServer((socket) => {
   console.log(`클라이언트가 연결되었습니다: ${socket.remoteAddress}:${socket.remotePort}`);
@@ -22,6 +19,6 @@ const server = net.createServer((socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`서버가 ${HOST}:${PORT}}에서 실행중입니다.`);
+server.listen(port, () => {
+  console.log(`서버가 ${host}:${port}}에서 실행중입니다.`);
 });
