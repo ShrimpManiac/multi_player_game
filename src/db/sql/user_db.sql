@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS user
 (
-    id    VARCHAR(36) PRIMARY KEY,
+    id         VARCHAR(36) PRIMARY KEY,
     device_id  VARCHAR(255) UNIQUE NOT NULL,
     x          FLOAT,
     y          FLOAT,
