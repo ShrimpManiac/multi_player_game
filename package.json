@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/db/migrations/createSchemas.js"
   },
   "repository": "github.com/ShrimpManiac/multi_player_game",
   "author": "ShrimpManiac <73187151+ShrimpManiac@users.noreply.github.com>",
