@@ -52,11 +52,13 @@ class Game {
     this.state = GAME_STATE.IN_PROGRESS;
   }
 
-  getAllLocations() {
-    const locationData = this.players.map((player) => {
-      const { x, y } = player;
-      return { id: player.id, playerId: player.playerId, x, y };
-    });
+  getAllLocations(userId) {
+    const locationData = this.players
+      .filter((player) => player.id != userId)
+      .map((player) => {
+        const { x, y } = player;
+        return { id: player.id, playerId: player.playerId, x, y };
+      });
     return createLocationPacket(locationData);
   }
 }

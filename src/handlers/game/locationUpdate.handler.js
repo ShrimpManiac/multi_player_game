@@ -18,7 +18,7 @@ const locationUpdateHandler = ({ socket, userId, payload }) => {
     }
 
     user.updatePosition(x, y);
-    const packet = gameSession.getAllLocations();
+    const packet = gameSession.getAllLocations(userId);
     socket.write(packet);
   } catch (error) {
     handleError(socket, error);
