@@ -13,8 +13,6 @@ const initialHandler = async ({ socket, userId, payload }) => {
     // deviceId가 존재할 경우 deviceId로 유저 등록
     // DB에 유저 데이터를 저장하고, 이미 저장된 위치정보가 있으면 로드
     if (deviceId && deviceId.length > 0) {
-      addUser(socket, deviceId, playerId, latency);
-
       let user = findUserByDeviceId(deviceId);
       if (!user) {
         user = await createUser(deviceId);
