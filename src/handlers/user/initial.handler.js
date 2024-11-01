@@ -18,7 +18,7 @@ const initialHandler = async ({ socket, userId, payload }) => {
         user = await createUser(deviceId);
         addUser(socket, deviceId, playerId, latency);
       } else {
-        await updateUserLogin(user.id);
+        await updateUserLogin(deviceId);
         addUser(socket, deviceId, playerId, latency, user.x, user.y);
       }
       // 그렇지 않으면 클라이언트에서 자체 생성한 userId로 등록
